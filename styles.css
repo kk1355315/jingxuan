@@ -88,7 +88,7 @@ body {
 }
 
 .intro-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -105,11 +105,82 @@ body {
     opacity: 0.9;
 }
 
+.personal-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 3rem;
+}
+
+.basic-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.personal-info-with-photo {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.personal-photo {
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.info-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    flex: 1;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.value {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+}
+
 .core-philosophy {
     background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 15px;
     backdrop-filter: blur(10px);
+    text-align: center;
 }
 
 .core-philosophy h3 {
@@ -239,6 +310,51 @@ body {
     border-radius: 10px;
     margin-top: 1rem;
     font-style: italic;
+}
+
+/* 图片展示样式 */
+.content-with-image {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.image-showcase {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-image {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.project-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-image img:hover {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
 }
 
 /* 第三区：理解 */
@@ -417,6 +533,62 @@ body {
     background: white;
 }
 
+/* 行业证据样式 */
+.industry-evidence {
+    margin-bottom: 3rem;
+}
+
+.industry-evidence h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.evidence-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.company-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.evidence-content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.evidence-content p {
+    margin-bottom: 0.5rem;
+    color: white;
+    line-height: 1.4;
+}
+
+.evidence-content .source {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
 .breakthrough-philosophy {
     margin-bottom: 3rem;
 }
@@ -554,12 +726,63 @@ body {
         padding: 0 1rem;
     }
 
+    .personal-info-with-photo {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .info-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .personal-card {
+        padding: 1.5rem;
+    }
+
+    .content-with-image {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .image-showcase {
+        flex-direction: row;
+        gap: 1rem;
+        overflow-x: auto;
+    }
+
+    .project-image {
+        min-width: 250px;
+    }
+
     .plans-grid {
         grid-template-columns: 1fr;
     }
 
     .trilogy-grid {
         grid-template-columns: 1fr;
+    }
+
+    .evidence-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .evidence-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .company-logo {
+        width: 60px;
+        height: 60px;
     }
 
     .understanding-grid {
@@ -708,13 +931,57 @@ body {
 
     /* 保持半透明背景 */
     .core-philosophy,
+    .personal-card,
     .philosophy-quote,
     .trilogy-item,
     .long-term-goal,
     .understanding-item,
-    .ai-philosophy {
+    .ai-philosophy,
+    .evidence-item {
         background: rgba(255, 255, 255, 0.15) !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* 行业证据打印样式 */
+    .evidence-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8mm !important;
+        margin-bottom: 8mm !important;
+    }
+
+    .evidence-item {
+        padding: 6mm !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6mm !important;
+    }
+
+    .company-logo {
+        width: 20mm !important;
+        height: 20mm !important;
+        background: white !important;
+        border-radius: 3mm !important;
+        padding: 2mm !important;
+    }
+
+    .evidence-content h4 {
+        font-size: 12pt !important;
+        margin-bottom: 2mm !important;
+    }
+
+    .evidence-content p {
+        font-size: 10pt !important;
+        margin-bottom: 1mm !important;
+        line-height: 1.3 !important;
+    }
+
+    .evidence-content .source {
+        font-size: 8pt !important;
+    }
+
+    .industry-evidence h3 {
+        font-size: 16pt !important;
+        margin-bottom: 6mm !important;
     }
 
     /* 调整字体大小以适应PPT横向格式 */
@@ -753,9 +1020,88 @@ body {
     .philosophy-text,
     .conclusion-content p,
     .vision-text,
-    .benefit-item p {
+    .benefit-item p,
+    .intro-text {
         font-size: 11pt !important;
         line-height: 1.4 !important;
+    }
+
+    /* 个人信息卡片优化 */
+    .personal-card {
+        margin-bottom: 2rem !important;
+        padding: 1.5rem !important;
+    }
+
+    .basic-info h3 {
+        font-size: 16pt !important;
+        margin-bottom: 6mm !important;
+    }
+
+    .personal-info-with-photo {
+        display: flex !important;
+        gap: 8mm !important;
+        align-items: center !important;
+    }
+
+    .profile-photo {
+        width: 30mm !important;
+        height: 30mm !important;
+        border-radius: 50% !important;
+        border: 1mm solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 2mm 5mm rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .label {
+        font-size: 9pt !important;
+    }
+
+    .value {
+        font-size: 11pt !important;
+    }
+
+    .info-layout {
+        gap: 8mm !important;
+    }
+
+    /* 图片展示打印样式 */
+    .content-with-image {
+        display: flex !important;
+        gap: 8mm !important;
+        align-items: flex-start !important;
+    }
+
+    .text-content {
+        flex: 1 !important;
+    }
+
+    .image-showcase {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4mm !important;
+    }
+
+    .project-image {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 6mm !important;
+        padding: 4mm !important;
+        text-align: center !important;
+    }
+
+    .project-image img {
+        width: 100% !important;
+        max-width: 80mm !important;
+        height: auto !important;
+        border-radius: 3mm !important;
+        box-shadow: 0 1mm 3mm rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .image-caption {
+        margin-top: 2mm !important;
+        font-size: 8pt !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-weight: 500 !important;
     }
 
     /* Vision section 特殊样式 */

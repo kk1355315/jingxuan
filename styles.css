@@ -112,6 +112,88 @@ body.presentation-mode .section {
 
 body.presentation-mode .section.active {
     display: flex;
+    overflow: hidden; /* 防止滚动条 */
+}
+
+/* PPT模式下调整内容适应屏幕 */
+body.presentation-mode .advantages-section .container {
+    max-height: 90vh;
+    overflow: hidden;
+    padding: 0.5rem 2rem; /* 进一步减少容器内边距 */
+}
+
+body.presentation-mode .advantages-section .section-title {
+    margin-bottom: 1rem; /* 进一步减少标题底部间距 */
+}
+
+body.presentation-mode .advantage-block {
+    margin-bottom: 0.8rem; /* 进一步减少间距 */
+    padding: 1rem; /* 减少内边距 */
+}
+
+body.presentation-mode .advantage-header {
+    margin-bottom: 0.8rem; /* 减少标题间距 */
+    gap: 1.2rem; /* 增加图标与文字间距 */
+}
+
+body.presentation-mode .advantage-header i {
+    flex-shrink: 0; /* 防止图标被压缩 */
+    min-width: 2.5rem; /* 确保图标有足够空间 */
+}
+
+body.presentation-mode .advantage-content ul {
+    margin-bottom: 0.5rem; /* 进一步减少列表底部间距 */
+}
+
+body.presentation-mode .advantage-content li {
+    padding: 0.4rem 0; /* 稍微增加列表项间距 */
+    padding-left: 2rem; /* 确保演示模式下也有足够的左边距 */
+}
+
+body.presentation-mode .advantage-content li::before {
+    left: 0.3rem; /* 确保三角形位置正确 */
+    top: 0.5rem; /* 调整垂直位置 */
+    font-size: 0.8rem; /* 演示模式下稍微缩小 */
+}
+
+body.presentation-mode .tech-stack {
+    margin-top: 0.3rem; /* 减少技术标签顶部间距 */
+}
+
+/* 演示模式下图片展示区域的调整 */
+body.presentation-mode .content-with-image {
+    gap: 1.5rem; /* 减少图片与文字间距 */
+}
+
+body.presentation-mode .project-image {
+    padding: 0.8rem; /* 减少图片容器内边距 */
+}
+
+body.presentation-mode .image-caption {
+    margin-top: 0.3rem; /* 减少图片说明顶部间距 */
+    font-size: 1rem; /* 稍微缩小字体 */
+}
+
+/* PPT模式下AI区块的特殊调整 */
+body.presentation-mode .ai-section .advantage-header {
+    margin-bottom: 1rem; /* 确保AI区块标题间距 */
+    gap: 1.2rem; /* 增加图标与文字间距 */
+}
+
+body.presentation-mode .ai-section .advantage-header i {
+    flex-shrink: 0; /* 防止图标被压缩 */
+    min-width: 2.5rem; /* 确保图标有足够空间 */
+}
+
+/* PPT模式下计划区块的调整 */
+body.presentation-mode .plans-section .plan-header {
+    margin-bottom: 1rem; /* 确保计划区块标题间距 */
+    gap: 1.2rem; /* 增加图标与文字间距 */
+}
+
+body.presentation-mode .plans-section .plan-header i {
+    flex-shrink: 0; /* 防止图标被压缩 */
+    min-width: 2.5rem; /* 确保图标有足够空间 */
 }
 
 .container {
@@ -279,8 +361,8 @@ body.presentation-mode .section.active {
 .advantage-block {
     background: #f8f9fa;
     border-radius: 15px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
 }
@@ -299,7 +381,7 @@ body.presentation-mode .section.active {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .advantage-header i {
@@ -318,21 +400,23 @@ body.presentation-mode .section.active {
 
 .advantage-content ul {
     list-style: none;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .advantage-content li {
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 2rem; /* 增加左边距，给三角形更多空间 */
     font-size: 1.3rem;
 }
 
 .advantage-content li::before {
     content: '▶';
     position: absolute;
-    left: 0;
+    left: 0.3rem; /* 稍微向右移动三角形 */
+    top: 0.6rem; /* 垂直居中对齐 */
     color: #667eea;
+    font-size: 0.9rem; /* 稍微缩小三角形 */
 }
 
 .advantage-block.highlight .advantage-content li::before {
@@ -343,6 +427,7 @@ body.presentation-mode .section.active {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .tech-tag {
@@ -879,36 +964,47 @@ body.presentation-mode .page-controller {
     transform: scale(1.2);
 }
 
-/* 全屏提示 */
-.fullscreen-hint {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    z-index: 1001;
-    opacity: 0.7;
-}
+
 
 /* 第七区：致谢 */
 .thanks-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-align: center;
-    min-height: 50vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thanks-content {
+    padding: 4rem 2rem;
 }
 
 .thanks-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
 }
 
 .thanks-content p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     opacity: 0.9;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.thanks-details {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.thanks-details p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
 }
 
 /* 响应式设计 */
@@ -1067,6 +1163,35 @@ body.presentation-mode .page-controller {
     .thanks-section {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .thanks-content {
+        text-align: center !important;
+        padding: 8mm !important;
+    }
+
+    .thanks-content h2 {
+        font-size: 24pt !important;
+        margin-bottom: 8mm !important;
+    }
+
+    .thanks-content p {
+        font-size: 12pt !important;
+        margin-bottom: 4mm !important;
+    }
+
+    .thanks-details {
+        margin-top: 8mm !important;
+        padding-top: 6mm !important;
+        border-top: 1pt solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .thanks-details p {
+        font-size: 11pt !important;
+        margin-bottom: 3mm !important;
     }
 
     .ai-section {

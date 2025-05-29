@@ -981,14 +981,19 @@ body {
     /* 保持半透明背景 */
     .core-philosophy,
     .personal-card,
-    .philosophy-quote,
     .trilogy-item,
     .long-term-goal,
     .understanding-item,
-    .ai-philosophy,
-    .evidence-item {
+    .ai-philosophy {
         background: rgba(255, 255, 255, 0.15) !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* 保持深蓝色背景 */
+    .philosophy-quote,
+    .evidence-item {
+        background: rgba(30, 60, 114, 0.95) !important;
+        border: 2px solid rgba(255, 255, 255, 0.4) !important;
     }
 
     /* 行业证据打印样式 */

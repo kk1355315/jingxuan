@@ -211,7 +211,7 @@ body {
 
 /* 第二区B：AI优势 */
 .ai-section {
-    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
 
@@ -249,8 +249,9 @@ body {
 }
 
 .advantage-block.highlight {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
     color: white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 .advantage-header {
@@ -317,7 +318,7 @@ body {
 }
 
 .ai-philosophy {
-    background: linear-gradient(135deg, rgba(30, 60, 114, 0.95), rgba(42, 67, 101, 0.95));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
     padding: 2.5rem 3rem;
     border-radius: 20px;
     margin-top: 2rem;
@@ -328,6 +329,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.4);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(15px);
 }
 
 .ai-philosophy::before {
@@ -916,7 +918,7 @@ body {
     }
 
     .ai-section {
-        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%) !important;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
         color: white !important;
     }
 

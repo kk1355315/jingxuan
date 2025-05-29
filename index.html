@@ -16,6 +16,10 @@
                 <button onclick="exportToPDF()" class="export-btn">
                     <i class="fas fa-file-pdf"></i> 导出PDF
                 </button>
+                <button class="export-btn" id="presentationBtn" onclick="togglePresentationMode()">
+                    <i class="fas fa-play"></i>
+                    演示模式
+                </button>
             </div>
         </div>
     </nav>
@@ -355,6 +359,30 @@
             </div>
         </section>
     </main>
+
+    <!-- 页面控制器 -->
+    <div class="page-controller">
+        <button class="page-nav-btn" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="page-info">
+            <span id="currentPage">1</span> / <span id="totalPages">7</span>
+        </div>
+
+        <div class="page-dots" id="pageDots">
+            <!-- 动态生成页面指示点 -->
+        </div>
+
+        <button class="page-nav-btn" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- 全屏提示 -->
+    <div class="fullscreen-hint">
+        按 F11 进入全屏演示模式 | 空格键/方向键切换页面
+    </div>
 
     <script src="script.js"></script>
 </body>

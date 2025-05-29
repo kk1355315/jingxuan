@@ -24,6 +24,12 @@ body {
     z-index: 1000;
     padding: 1rem 0;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* PPT模式时隐藏导航栏 */
+body.presentation-mode .navbar {
+    transform: translateY(-100%);
 }
 
 .nav-container {
@@ -61,16 +67,51 @@ body {
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#presentationBtn.active {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+#presentationBtn.active i {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
 /* 主内容 */
 .main-content {
     margin-top: 80px;
+    transition: margin-top 0.3s ease;
 }
 
+/* PPT模式时移除顶部边距 */
+body.presentation-mode .main-content {
+    margin-top: 0;
+}
+
+/* 分页展示模式 */
 .section {
     min-height: 100vh;
     padding: 4rem 0;
-    display: flex;
+    display: flex; /* 默认显示所有页面（普通模式） */
     align-items: center;
+}
+
+/* PPT模式：隐藏所有页面，只显示激活的 */
+body.presentation-mode .section {
+    display: none;
+}
+
+body.presentation-mode .section.active {
+    display: flex;
 }
 
 .container {
@@ -758,6 +799,98 @@ body {
     left: 0;
     color: #667eea;
     font-weight: bold;
+}
+
+/* 页面控制器 - 只在PPT模式显示 */
+.page-controller {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: none; /* 默认隐藏 */
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* PPT模式时显示控制器 */
+body.presentation-mode .page-controller {
+    display: flex;
+}
+
+.page-nav-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.page-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.page-nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.page-info {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 80px;
+    text-align: center;
+}
+
+.page-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-dot.active {
+    background: #667eea;
+    transform: scale(1.2);
+}
+
+/* 全屏提示 */
+.fullscreen-hint {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    z-index: 1001;
+    opacity: 0.7;
 }
 
 /* 第七区：致谢 */

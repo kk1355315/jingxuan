@@ -1,0 +1,304 @@
+\documentclass{beamer}
+\usepackage{amsfonts,amsmath,amssymb,oldgerm} % Added amssymb for \mathbb if needed, amsmath for \boxed
+\usetheme{sintef}
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun} % 设置一个常用的中文字体，例如宋体。请根据你的系统配置修改。
+                       % Windows: SimSun, KaiTi, SimHei
+                       % macOS: STSong, STKaiti, STHeiti
+                       % Linux: WenQuanYi Micro Hei, Noto Sans CJK SC
+
+\newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+\usefonttheme[onlymath]{serif}
+\titlebackground*{assets/sdubackground} % 确保 assets/sdubackground 图片存在
+
+\newcommand{\hrefcol}[2]{\textcolor{cyan}{\href{#1}{#2}}}
+
+\title{竖直放置尺子加农炮的准静态模型推导}
+\subtitle{移动固定端修正版 V2.3 - 指定初始高度 - 已修正静摩擦逻辑}
+\author{您的姓名} % 请替换为您的姓名
+\date{\today} % 或指定日期，例如 2023/12
+
+\begin{document}
+\maketitle
+
+% --- 引言部分可以保留模板的，或删除 ---
+% \begin{frame}
+% This template is a based on \hrefcol{https://www.overleaf.com/latex/templates/sintef-presentation/jhbhdffczpnx}{SINTEF Presentation} from \hrefcol{mailto:federico.zenith@sintef.no}{Federico Zenith} and its derivation \hrefcol{https://github.com/TOB-KNPOB/Beamer-LaTeX-Themes}{Beamer-LaTeX-Themes} from Liu Qilong
+% \vspace{\baselineskip}
+% THU style adaptation contributed by \hrefcol{https://github.com/FangWHao}{Wenhao Fang}
+% SDU style adaptation contributed by \hrefcol{https://github.com/almostgph}{Penghong Gao}
+% \vspace{\baselineskip}
+% In the following you find a brief introduction on how to use \LaTeX\ and the beamer package to prepare slides, based on the one written by \hrefcol{mailto:federico.zenith@sintef.no}{Federico Zenith} for \hrefcol{https://www.overleaf.com/latex/templates/sintef-presentation/jhbhdffczpnx}{SINTEF Presentation}
+% \vspace{\baselineskip}
+% This template is released under \hrefcol{https://creativecommons.org/licenses/by-nc/4.0/legalcode}{Creative Commons CC BY 4.0} license
+% \end{frame}
+% --- 引言结束 ---
+
+\section{系统描述与坐标系}
+\begin{frame}{1. 系统描述与坐标系}
+    \begin{itemize}
+        \item \textbf{尺子:} 长度 $L$, 弹性模量 $E$, 截面惯性矩 $I$。线密度 $\rho A$ (准静态模型下忽略其惯性)。
+        \item \textbf{放置:} 两把完全相同的尺子竖直平行放置。$x$ 轴沿尺子未变形时竖直向上，原点 $x=0$ 在尺子底部。
+        \item \textbf{尺子变形:} $w(x, t)$ 为单把尺子在高度 $x$、时间 $t$ 的\textbf{水平向外}位移（定义 $+w$ 为向外，远离中心线）。
+        \item \textbf{小球:} 质量 $m_b$, 半径 $r$。
+        \item \textbf{小球位置:}
+            \begin{itemize}
+                \item $y_b(t)$: 小球中心的\textbf{竖直}坐标 ($x$ 坐标)。
+                \item $x_c(t)$: 小球与该侧尺子\textbf{接触点}的\textbf{竖直}坐标 ($x$ 坐标)。
+            \end{itemize}
+        \item \textbf{作用力:}
+            \begin{itemize}
+                \item $P(t)$: 单侧尺子对小球的\textbf{法向压力大小}（作用于 $x_c$, 指向小球中心）。
+                \item $f(t)$: 单侧尺子对小球的\textbf{切向摩擦力}（作用于 $x_c$, 沿尺子切线）。\textbf{规定向上为正方向}。
+                \item $F(t)$: 外部施加的\textbf{水平挤压力的大小} (作用于尺子上 $x=a$ 的位置)。物理方向为\textbf{向内}（$-w$ 方向）。
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{关键角度定义}
+\begin{frame}{2. 关键角度定义}
+    $\beta(t)$: 尺子在接触点 $x_c(t)$ 处的切线方向与\textbf{竖直方向} ($x$轴) 的夹角。
+    \begin{equation*}
+        \beta(t) = \arctan\left( \left. \frac{\partial w(x,t)}{\partial x} \right|_{x=x_c(t)} \right)
+    \end{equation*}
+    假设 $\beta(t) \ge 0$ 且通常 $\beta(t) < \pi/2$。
+\end{frame}
+
+\section{接触几何约束}
+\begin{frame}{3. 接触几何约束}
+    \begin{itemize}
+        \item \textbf{接触点与球心竖直关系:}
+            \begin{equation*}
+                \boxed{x_c(t) = y_b(t) - r \sin(\beta(t))}
+            \end{equation*}
+        \item \textbf{接触点水平位移与角度关系:} (尺子必须向外变形以容纳小球)
+            \begin{equation*}
+                \boxed{w(x_c(t), t) = r \cos(\beta(t))}
+            \end{equation*}
+    \end{itemize}
+\end{frame}
+
+\section{尺子的准静态方程与移动固定端}
+\begin{frame}{4.1 尺子的准静态方程与移动固定端 (1)}
+    \begin{itemize}
+        \item \textbf{假设:} 忽略尺子的惯性项 $\rho A \frac{\partial^2 w}{\partial t^2}$。
+        \item \textbf{载荷分析 (作用在尺子上):}
+            \begin{itemize}
+                \item 外部力 $F(t)$: 等效分布载荷 $-F(t) \delta(x-a)$ (方向 $-w$)。
+                \item 小球法向力 $P(t)$: 等效分布载荷 $+P(t) \delta(x-x_c)$ (方向 $+w$)。
+                \item 小球摩擦力 $-f(t)$: 水平分量 $-f(t) \sin(\beta(t))$。等效分布载荷 $-f(t) \sin(\beta(t)) \delta(x-x_c)$。
+            \end{itemize}
+        \item \textbf{定义等效力 (作用在梁上):} $P'_{eff}(t)$ 为在接触点 $x_c$ 处，由小球产生的等效\textbf{净向外}集中载荷强度。
+            \begin{equation*}
+            \boxed{P'_{eff}(t) = P(t) - f(t) \sin(\beta(t))}
+            \end{equation*}
+            \begin{itemize}
+                \item 静止时 ($t=0$): $P'_{eff}(0) = P(0) - f_s(0) \sin(\beta(0))$。
+                \item 向上运动时 ($t>0$): $P'_{eff}(t) = P(t)[1 - \mu_k \sin(\beta(t))]$。
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{4.2 尺子的准静态方程与移动固定端 (2)}
+    \begin{itemize}
+        \item \textbf{准静态欧拉-伯努利方程:}
+            \begin{equation*}
+                \boxed{EI \frac{\partial^4 w(x,t)}{\partial x^4} = -F_{active}(t) \delta(x - a) + P'_{eff, active}(t) \delta(x - x_c(t))}
+            \end{equation*}
+            ($F_{active}(t)$, $P'_{eff, active}(t)$ 为考虑移动固定端效应的有效力)
+        \item \textbf{引入移动固定端 $x_{fix}(t)$:}
+            \begin{itemize}
+                \item 定义：尺子保持 $w(x,t) \approx 0$ 且 $w'(x,t) \approx 0$ 的最高点。
+                \item 重要假设: 梁在 $[0, x_{fix}(t))$ 区间内 $w(x,t) = 0$ 且 $w'(x,t) = 0$。弯曲变形主要在 $[x_{fix}(t), L]$ 区间。
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\section{修正后的尺子边界条件}
+\begin{frame}{5. 修正后的尺子边界条件}
+    对于活动区间 $[x_{fix}(t), L]$:
+    \begin{itemize}
+        \item \textbf{移动固定端 ($x=x_{fix}(t)$):}
+            \begin{align*}
+                w(x_{fix}(t), t) &= 0 \\
+                \frac{\partial w(x_{fix}(t), t)}{\partial x} &= 0
+            \end{align*}
+        \item \textbf{自由端 ($x=L$):}
+            \begin{align*}
+                \frac{\partial^2 w(L,t)}{\partial x^2} &= 0 \quad (\text{零弯矩}) \\
+                \frac{\partial^3 w(L,t)}{\partial x^3} &= 0 \quad (\text{零剪力})
+            \end{align*}
+    \end{itemize}
+\end{frame}
+
+\section{尺子变形与转角的解析解}
+\begin{frame}{6.1 尺子变形与转角的解析解 (移动固定端版)}
+    \framesubtitle{转角 $w'(x,t)$ for $x \in [x_{fix}(t), L]$}
+    \begin{multline*}
+        \boxed{EI w'(x,t) = -\frac{F_{active}(t)}{2} \langle x-a \rangle^2 + \frac{P'_{eff, active}(t)}{2} \langle x-x_c(t) \rangle^2} \\
+        \boxed{+ \frac{F_{active}(t)-P'_{eff, active}(t)}{2}(x^2 - x_{fix}(t)^2) + (P'_{eff, active}(t)x_c(t) - F_{active}(t)a)(x-x_{fix}(t))}
+    \end{multline*}
+    \vspace{0.5em}
+    \framesubtitle{挠度 $w(x,t)$ for $x \in [x_{fix}(t), L]$}
+    \begin{multline*}
+    \boxed{EI w(x,t) = -\frac{F_{active}(t)}{6} \langle x-a \rangle^3 + \frac{P'_{eff, active}(t)}{6} \langle x-x_c(t) \rangle^3} \\
+    \boxed{+ \frac{P'_{eff, active}(t)x_c(t) - F_{active}(t)a}{2}(x-x_{fix}(t))^2 + \frac{F_{active}(t)-P'_{eff, active}(t)}{6}(x-x_{fix}(t))^2(x+2x_{fix}(t))}
+    \end{multline*}
+\end{frame}
+
+\begin{frame}{6.2 解析解的注意事项}
+    \begin{itemize}
+        \item 对于 $x < x_{fix}(t)$, 有 $w(x,t) = 0$ 且 $w'(x,t) = 0$。
+        \item $\langle z \rangle^n$ 是 Macauley 括号: $\langle z \rangle^n = (\max(z, 0))^n$ for $n \ge 0$。
+        \item $P'_{eff}(t)$ 依赖于瞬时的 $P(t), f(t), \beta(t)$。
+        \item \textbf{条件处理 (力的有效性):}
+            \begin{itemize}
+                \item 若 $x_{fix}(t) \ge a \implies F_{active}(t) = 0$, 否则 $F_{active}(t) = F(t)$。
+                \item 若 $x_{fix}(t) \ge x_c(t) \implies P'_{eff, active}(t) = 0$, 否则 $P'_{eff, active}(t) = P'_{eff}(t)$。
+            \end{itemize}
+        \item 公式中使用判断后的 $F_{active}(t)$ 和 $P'_{eff, active}(t)$。
+    \end{itemize}
+\end{frame}
+
+\section{小球的运动方程}
+\begin{frame}{7. 小球的运动方程 (动态 - 已修正)}
+    描述小球中心 $y_b(t)$ 的竖直运动。当小球向上运动时 ($t>0$, $\dot{y}_b > 0$):
+    \begin{itemize}
+        \item 重力：$-m_b g$ (向下)
+        \item 两侧法向力竖直分量：$+2 P(t) \sin(\beta(t))$ (向上)
+        \item 两侧动摩擦力竖直分量：$-2 \mu_k P(t) \cos(\beta(t))$ (向下)
+    \end{itemize}
+    \textbf{运动方程:}
+    \begin{equation*}
+        \boxed{m_b \frac{d^2 y_b(t)}{dt^2} = 2 P(t) \sin(\beta(t)) - 2 \mu_k P(t) \cos(\beta(t)) - m_b g}
+    \end{equation*}
+    这里使用\textbf{动摩擦系数} $\mu_k$。
+\end{frame}
+
+\section{耦合系统与求解}
+\begin{frame}{8.1 耦合系统与求解 (移动固定端 + 时间滞后近似) - 1}
+    在任意时刻 $t_{n+1}$，需求解以下方程组。 ($x_{fix}^{(n+1)}$ 由 $t_n$ 时刻结果预计算)
+
+    \begin{enumerate}[(I)]
+        \item \textbf{小球动力学 (ODE 离散形式 - 已修正):} (例如，隐式欧拉法)
+            \begin{align*}
+                m_b \frac{\dot{y}_b^{(n+1)} - \dot{y}_b^{(n)}}{\Delta t} &= 2 P^{(n+1)} \sin(\beta^{(n+1)}) \\
+                                               &\quad - 2 \mu_k P^{(n+1)} \cos(\beta^{(n+1)}) - m_b g \\
+                y_b^{(n+1)} &= y_b^{(n)} + \dot{y}_b^{(n+1)} \Delta t
+            \end{align*}
+        \item \textbf{几何约束 1:}
+            \begin{equation*}
+                 x_c^{(n+1)} = y_b^{(n+1)} - r \sin(\beta^{(n+1)})
+            \end{equation*}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{8.2 耦合系统与求解 (移动固定端 + 时间滞后近似) - 2}
+    \begin{enumerate}[(I)]
+        \setcounter{enumi}{2} % Continue numbering from previous frame
+        \item \textbf{几何约束 2:} 使用 $x_{fix}^{(n+1)}$ 固定的 $w$ 解析解:
+            \begin{equation*}
+                w(x_c^{(n+1)}, t_{n+1}; x_{fix}^{(n+1)}) = r \cos(\beta^{(n+1)})
+            \end{equation*}
+        \item \textbf{角度定义:} 使用 $x_{fix}^{(n+1)}$ 固定的 $w'$ 解析解:
+            \begin{equation*}
+                \beta^{(n+1)} = \arctan( w'(x_c^{(n+1)}, t_{n+1}; x_{fix}^{(n+1)}) )
+            \end{equation*}
+        \item \textbf{等效力定义 (运动时):}
+            \begin{equation*}
+                \boxed{P'_{eff}{}^{(n+1)} = P^{(n+1)}[1 - \mu_k \sin(\beta^{(n+1)})]}
+            \end{equation*}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{8.3 耦合系统与求解 (移动固定端 + 时间滞后近似) - 3}
+    \begin{itemize}
+        \item \textbf{求解当前步:}
+        在时间步 $t_{n+1}$，已知 $x_{fix}^{(n+1)}$, $(y_b^{(n)}, \dot{y}_b^{(n)})$, $F^{(n+1)}$。
+        需求解未知量 $(y_b^{(n+1)}, \dot{y}_b^{(n+1)}, P^{(n+1)}, x_c^{(n+1)}, \beta^{(n+1)})$ 的非线性代数系统 (I)-(V)。
+        通常需要数值迭代方法。
+
+        \item \textbf{确定下一个固定点 $x_{fix}^{(n+2)}$ (时间滞后近似):}
+        \begin{enumerate}
+            \item 使用刚求解的 $P'_{eff}{}^{(n+1)}, x_c^{(n+1)}$。
+            \item 计算假想固定点在 $x=0$ 时的尺子变形 $w_{orig}(x)$ (使用$t_{n+1}$参数):
+            \begin{multline*}
+            \boxed{EI w_{orig}(x)|_{t_{n+1}} = -\frac{F^{(n+1)}}{6} \langle x-a \rangle^3 + \frac{P'_{eff}{}^{(n+1)}}{6} \langle x-x_c^{(n+1)} \rangle^3} \\
+            \boxed{+ \frac{P'_{eff}{}^{(n+1)}x_c^{(n+1)} - F^{(n+1)}a}{2}x^2 + \frac{F^{(n+1)}-P'_{eff}{}^{(n+1)}}{6}x^3}
+            \end{multline*}
+            \item 寻找 $w_{orig}(x) \le \epsilon$ 的最高 $x$ 值，设为 $x^*$。
+            \item 设定 $\boxed{x_{fix}^{(n+2)} = \max(0, x^*)}$。
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\section{初始条件 (t=0)}
+\begin{frame}{9.1 初始条件 (t=0) - 基于指定初始高度 $y_b(0)$ (1)}
+    \begin{itemize}
+        \item \textbf{假设:} 设定小球中心初始竖直高度 $y_b(0)$ ($y_b(0) > r$), $t=0$ 时静止 ($\dot{y}_b(0) = 0$), $F(0)=0$, $x_{fix}(0)=0$。
+        \item \textbf{目标:} 求解 $x_c(0)$, $\beta(0)$, $P(0)$, 并验证静平衡。
+        \item \textbf{求解步骤:}
+        \begin{enumerate}
+            \item 计算 $\sin(\beta(0))$:
+                $S = \sin(\beta(0)) = \frac{-y_b(0) + \sqrt{y_b(0)^2 + 3r^2}}{r}$ \\
+                (\textit{验证: $0 \le S < 1$})
+            \item 计算 $\beta(0) = \arcsin(S)$。
+            \item 计算 $x_c(0) = y_b(0) - r \sin(\beta(0))$。
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{9.2 初始条件 (t=0) - 基于指定初始高度 $y_b(0)$ (2)}
+    \framesubtitle{求解步骤 (续)}
+    \begin{enumerate}
+        \setcounter{enumi}{3} % Continue numbering
+        \item 计算初始法向力 $P(0)$: \\
+            令 $D = \cos(\beta(0)) + \sin^2(\beta(0))$
+            \begin{equation*}
+                \boxed{P(0) = \frac{\sin(\beta(0))}{ D } \left( \frac{2 EI}{x_c(0)^2} + \frac{m_b g}{2} \right)}
+            \end{equation*}
+            (\textit{验证: $P(0) > 0$})
+        \item 计算所需静摩擦力 $f_s(0)$ (尺子对小球，向上为正):
+            \begin{equation*}
+                \boxed{f_s(0) = \frac{m_b g - 2 P(0) \sin(\beta(0))}{2 \cos(\beta(0))}}
+            \end{equation*}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{9.3 初始条件 (t=0) - 基于指定初始高度 $y_b(0)$ (3)}
+    \begin{itemize}
+        \item \textbf{验证静平衡可行性:}
+            \begin{itemize}
+                \item 最大允许静摩擦力 $f_{s,max}(0) = \mu_s P(0)$ (使用\textbf{静摩擦系数} $\mu_s$)。
+                \item \textbf{核心验证条件:}
+                    \begin{equation*}
+                        \boxed{|f_s(0)| \le f_{s,max}(0)}
+                    \end{equation*}
+                \item 若满足且 $P(0)>0$: 有效静止初始状态。后续运动使用 $\mu_k$。
+                \item 若不满足或 $P(0) \le 0$: 该 $y_b(0)$ 无法静止。从 $t=0$ 开始运动，使用 $\mu_k$。
+            \end{itemize}
+        \item \textbf{初始速度:} $\dot{y}_b(0) = 0$。
+        \item \textbf{确定第一个移动固定点 $x_{fix}^{(1)}$:}
+        \begin{enumerate}
+            \item 计算 $P'_{eff}(0) = P(0) - f_s(0) \sin(\beta(0))$。
+            \item 使用 $P'_{eff}(0), x_c(0), F(0)=0$ 代入 $w_{orig}(x)$ 公式，找到 $w_{orig}(x) \le \epsilon$ 的最高点 $x^*$。
+            \item $x_{fix}^{(1)} = \max(0, x^*)$。
+        \end{enumerate}
+    \end{itemize}
+\end{frame}
+
+\section{总结}
+\begin{frame}{10. 总结}
+    \begin{itemize}
+        \item 该理论模型描述了竖直放置的尺子加农炮系统。
+        \item 考虑了尺子作为弹性梁的弯曲变形及有效固定端移动 ($x_{fix}$) 现象。
+        \item 采用欧拉-伯努利梁理论的准静态解，引入移动边界条件。
+        \item 小球运动通过牛顿第二定律描述，考虑重力、法向力和摩擦力。
+        \item 初始条件根据设定的 $y_b(0)$ 计算，严格检查静平衡，区分 $\mu_s$ 和 $\mu_k$。
+        \item 系统状态演化通过求解耦合微分代数方程组模拟，移动固定点采用时间滞后近似。
+        \item 为理解和预测尺子加农炮行为提供了较为完善的理论框架。
+    \end{itemize}
+\end{frame}
+
+\backmatter % 根据模板，用于生成感谢页等
+\end{document}

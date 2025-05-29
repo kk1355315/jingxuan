@@ -596,7 +596,7 @@ body {
 }
 
 .evidence-item {
-    background: rgba(30, 60, 114, 0.95);
+    background: rgba(30, 60, 114, 0.95) !important;
     padding: 2.5rem;
     border-radius: 20px;
     backdrop-filter: blur(15px);

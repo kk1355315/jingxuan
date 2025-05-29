@@ -731,14 +731,33 @@ body {
 
 /* 第六区：总结 */
 .conclusion-section {
-    background: white;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.conclusion-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.2);
 }
 
 .conclusion-content p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1.8;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: justify;
+    color: #2c3e50;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.conclusion-content p::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
 }
 
 /* 第七区：致谢 */
@@ -927,6 +946,10 @@ body {
         color: white !important;
     }
 
+    .conclusion-section {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    }
+
     /* 保持卡片样式 */
     .advantage-block {
         background: #f8f9fa !important;
@@ -989,6 +1012,13 @@ body {
     .ai-philosophy {
         background: rgba(255, 255, 255, 0.15) !important;
         border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* 保持总结区域卡片样式 */
+    .conclusion-content {
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid rgba(102, 126, 234, 0.2) !important;
+        box-shadow: 0 2mm 8mm rgba(0, 0, 0, 0.1) !important;
     }
 
     /* 保持深蓝色背景 */

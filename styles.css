@@ -1,0 +1,1238 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* 导航栏 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.export-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* 主内容 */
+.main-content {
+    margin-top: 80px;
+}
+
+.section {
+    min-height: 100vh;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+/* 第一区：开场 */
+.intro-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.personal-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: none;
+}
+
+.basic-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.personal-info-with-photo {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    width: 100%;
+}
+
+.personal-photo {
+    flex-shrink: 0;
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.info-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.value {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white;
+}
+
+.core-philosophy {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: none;
+}
+
+.core-philosophy h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.philosophy-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+/* 第二区：优势 */
+.advantages-section {
+    background: white;
+}
+
+/* 第二区B：AI优势 */
+.ai-section {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+}
+
+.advantage-block {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.advantage-block:hover {
+    transform: translateY(-5px);
+}
+
+.advantage-block.highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.advantage-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.advantage-header i {
+    font-size: 2rem;
+    color: #667eea;
+}
+
+.advantage-block.highlight .advantage-header i {
+    color: white;
+}
+
+.advantage-header h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.advantage-content ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.advantage-content li {
+    padding: 0.8rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.advantage-content li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+}
+
+.advantage-block.highlight .advantage-content li::before {
+    color: white;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: #667eea;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.advantage-block.highlight .tech-tag {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.ai-philosophy {
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.95), rgba(42, 67, 101, 0.95));
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+    font-style: italic;
+    width: 100%;
+    color: white;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-philosophy::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+.ai-philosophy::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+    border-radius: 20px;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+/* 图片展示样式 */
+.content-with-image {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.image-showcase {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-image {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.project-image img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-image img:hover {
+    transform: scale(1.05);
+}
+
+.image-caption {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+/* 第三区：理解 */
+.understanding-section {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.understanding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.understanding-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.understanding-item i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.understanding-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+/* 第四区：计划 */
+.plans-section {
+    background: white;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.plan-block {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.plan-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.plan-header i {
+    font-size: 2rem;
+    color: #f093fb;
+}
+
+.plan-header h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+.plan-content ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+}
+
+.plan-content li {
+    padding: 0.8rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.plan-content li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #f093fb;
+    font-weight: bold;
+}
+
+.plan-note {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* 第五区：突破性构想 */
+.breakthrough-section {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+/* 第五区B：长远目标与价值 */
+.vision-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.vision-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.vision-main {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.vision-main h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.vision-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.vision-benefits h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.benefit-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.benefit-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.benefit-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.breakthrough-title {
+    color: white;
+}
+
+.breakthrough-title::after {
+    background: white;
+}
+
+/* 行业证据样式 */
+.industry-evidence {
+    margin-bottom: 3rem;
+}
+
+.industry-evidence h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.evidence-item {
+    background: rgba(30, 60, 114, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.company-logo {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.evidence-content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.evidence-content p {
+    margin-bottom: 0.5rem;
+    color: white;
+    line-height: 1.4;
+}
+
+.evidence-content .source {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+.breakthrough-philosophy {
+    margin-bottom: 3rem;
+}
+
+.philosophy-quote {
+    background: rgba(30, 60, 114, 0.95);
+    padding: 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.philosophy-quote i {
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+.philosophy-quote .fa-quote-left {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.philosophy-quote .fa-quote-right {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.philosophy-quote p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 1rem 2rem;
+    font-style: italic;
+}
+
+.action-trilogy h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.trilogy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.trilogy-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.trilogy-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.trilogy-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.trilogy-subtitle {
+    font-style: italic;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.long-term-goal {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+}
+
+.long-term-goal h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.long-term-goal p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* 第六区：总结 */
+.conclusion-section {
+    background: white;
+}
+
+.conclusion-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+/* 第七区：致谢 */
+.thanks-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    min-height: 50vh;
+}
+
+.thanks-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.thanks-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .personal-info-with-photo {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 160px;
+        height: 160px;
+    }
+
+    .info-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .personal-card {
+        padding: 1.5rem;
+    }
+
+    .content-with-image {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .image-showcase {
+        flex-direction: row;
+        gap: 1rem;
+        overflow-x: auto;
+    }
+
+    .project-image {
+        min-width: 350px;
+    }
+
+    .project-image img {
+        max-width: 500px;
+    }
+
+    .plans-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trilogy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .evidence-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .evidence-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .company-logo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .understanding-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 打印样式 - 优化PDF导出 */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    @page {
+        size: A4 landscape;
+        margin: 0;
+    }
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .navbar {
+        display: none !important;
+    }
+
+    .export-btn {
+        display: none !important;
+    }
+
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* 严格控制每个区块为一页 - 基于测试页面的成功经验 */
+    .section {
+        page-break-before: always !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        width: 100% !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 15mm 20mm !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+    }
+
+    /* 第一页不需要page-break-before */
+    .intro-section {
+        page-break-before: auto !important;
+    }
+
+    /* 保持渐变背景 */
+    .intro-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+    }
+
+    .understanding-section {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+        color: white !important;
+    }
+
+    .breakthrough-section {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+        color: white !important;
+    }
+
+    .thanks-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+    }
+
+    .ai-section {
+        background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%) !important;
+        color: white !important;
+    }
+
+    .vision-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+    }
+
+    /* 保持卡片样式 */
+    .advantage-block {
+        background: #f8f9fa !important;
+        border: 1px solid #e9ecef !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .advantage-block.highlight {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+    }
+
+    .plan-block {
+        background: #f8f9fa !important;
+        border: 1px solid #e9ecef !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* 保持图标颜色 */
+    .advantage-header i {
+        color: #667eea !important;
+    }
+
+    .advantage-block.highlight .advantage-header i {
+        color: white !important;
+    }
+
+    .plan-header i {
+        color: #f093fb !important;
+    }
+
+    .understanding-item i {
+        color: white !important;
+    }
+
+    /* 保持技术标签样式 */
+    .tech-tag {
+        background: #667eea !important;
+        color: white !important;
+        border: 1px solid #667eea !important;
+    }
+
+    .advantage-block.highlight .tech-tag {
+        background: rgba(255, 255, 255, 0.2) !important;
+        border: 1px solid white !important;
+    }
+
+    /* 保持按钮样式 */
+    .plan-note {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+        color: white !important;
+    }
+
+    /* 保持半透明背景 */
+    .core-philosophy,
+    .personal-card,
+    .philosophy-quote,
+    .trilogy-item,
+    .long-term-goal,
+    .understanding-item,
+    .ai-philosophy,
+    .evidence-item {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* 行业证据打印样式 */
+    .evidence-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8mm !important;
+        margin-bottom: 8mm !important;
+    }
+
+    .evidence-item {
+        padding: 6mm !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6mm !important;
+    }
+
+    .company-logo {
+        width: 30mm !important;
+        height: 30mm !important;
+        border-radius: 3mm !important;
+    }
+
+    .evidence-content h4 {
+        font-size: 12pt !important;
+        margin-bottom: 2mm !important;
+    }
+
+    .evidence-content p {
+        font-size: 10pt !important;
+        margin-bottom: 1mm !important;
+        line-height: 1.3 !important;
+    }
+
+    .evidence-content .source {
+        font-size: 8pt !important;
+    }
+
+    .industry-evidence h3 {
+        font-size: 16pt !important;
+        margin-bottom: 6mm !important;
+    }
+
+    /* 调整字体大小以适应PPT横向格式 */
+    .main-title {
+        font-size: 32pt !important;
+        margin-bottom: 8mm !important;
+        text-align: center !important;
+    }
+
+    .section-title {
+        font-size: 22pt !important;
+        margin-bottom: 10mm !important;
+        text-align: center !important;
+    }
+
+    .advantage-header h3,
+    .plan-header h3 {
+        font-size: 14pt !important;
+    }
+
+    .understanding-item h4 {
+        font-size: 13pt !important;
+    }
+
+    .trilogy-number {
+        font-size: 36pt !important;
+    }
+
+    .trilogy-item h4 {
+        font-size: 14pt !important;
+    }
+
+    /* 调整内容字体 */
+    .advantage-content li,
+    .plan-content li,
+    .philosophy-text,
+    .conclusion-content p,
+    .vision-text,
+    .benefit-item p,
+    .intro-text {
+        font-size: 11pt !important;
+        line-height: 1.4 !important;
+    }
+
+    /* 个人信息卡片优化 */
+    .personal-card {
+        margin-bottom: 2rem !important;
+        padding: 1.5rem !important;
+    }
+
+    .basic-info h3 {
+        font-size: 16pt !important;
+        margin-bottom: 6mm !important;
+    }
+
+    .personal-info-with-photo {
+        display: flex !important;
+        gap: 8mm !important;
+        align-items: center !important;
+    }
+
+    .profile-photo {
+        width: 30mm !important;
+        height: 30mm !important;
+        border-radius: 50% !important;
+        border: 1mm solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 2mm 5mm rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .label {
+        font-size: 9pt !important;
+    }
+
+    .value {
+        font-size: 11pt !important;
+    }
+
+    .info-layout {
+        gap: 8mm !important;
+    }
+
+    /* 图片展示打印样式 */
+    .content-with-image {
+        display: flex !important;
+        gap: 8mm !important;
+        align-items: flex-start !important;
+    }
+
+    .text-content {
+        flex: 1 !important;
+    }
+
+    .image-showcase {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 4mm !important;
+    }
+
+    .project-image {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 6mm !important;
+        padding: 4mm !important;
+        text-align: center !important;
+    }
+
+    .project-image img {
+        width: 100% !important;
+        max-width: 80mm !important;
+        height: auto !important;
+        border-radius: 3mm !important;
+        box-shadow: 0 1mm 3mm rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .image-caption {
+        margin-top: 2mm !important;
+        font-size: 8pt !important;
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-weight: 500 !important;
+    }
+
+    /* Vision section 特殊样式 */
+    .vision-main h3,
+    .vision-benefits h3 {
+        font-size: 18pt !important;
+        margin-bottom: 8mm !important;
+    }
+
+    .benefit-item h4 {
+        font-size: 13pt !important;
+    }
+
+    .benefits-grid {
+        gap: 6mm !important;
+    }
+
+    .benefit-item {
+        padding: 6mm !important;
+    }
+
+    /* 调整间距适应横向PPT格式 */
+    .advantage-block,
+    .plan-block {
+        margin-bottom: 5mm !important;
+        padding: 8mm 10mm !important;
+    }
+
+    .understanding-grid,
+    .plans-grid,
+    .trilogy-grid {
+        gap: 8mm !important;
+    }
+
+    /* 调整特殊区块的间距 */
+    .breakthrough-philosophy {
+        margin-bottom: 8mm !important;
+    }
+
+    .action-trilogy h3 {
+        margin-bottom: 6mm !important;
+    }
+
+    .long-term-goal {
+        margin-top: 6mm !important;
+    }
+
+    /* 确保内容不会溢出页面 */
+    .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        height: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 简化主内容容器 */
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+    }
+
+    /* 优化网格布局适应横向 */
+    .understanding-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .trilogy-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* 隐藏可能导致分页问题的元素 */
+    .section-title::after {
+        display: none !important;
+    }
+
+    /* 删除重复的分页规则，统一在.section中处理 */
+}

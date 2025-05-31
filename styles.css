@@ -531,10 +531,33 @@ body.presentation-mode .plans-section .plan-header i {
 
 /* 优势2的图片直接放大 */
 #advantages-2 .project-image.compact img {
-    max-width: 1400px !important;
+    max-width: 1600px !important;
     width: 100% !important;
-    max-height: 350px !important;
+    max-height: 450px !important;
     object-fit: contain !important;
+}
+
+/* 特别优化Hugging Face图片 */
+#advantages-2 .project-image.compact:last-child img {
+    max-width: 1800px !important;
+    max-height: 500px !important;
+    transform: scale(1.1) !important;
+}
+
+/* 隐藏Hugging Face图片的说明文字 */
+#advantages-2 .project-image.compact:last-child .image-caption {
+    display: none !important;
+}
+
+/* 彻底移除Hugging Face图片容器的所有边框和背景 */
+#advantages-2 .project-image.compact:last-child {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 /* 优势2页面防止内容溢出 */
@@ -543,6 +566,33 @@ body.presentation-mode .plans-section .plan-header i {
 }
 
 #advantages-2 .container {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+/* AI优势页面的图片特殊调整 - 更大的展示空间 */
+#ai-advantages .image-showcase {
+    flex: 2.5; /* 给图片更多空间 */
+}
+
+#ai-advantages .text-content {
+    flex: 1; /* 减少文字空间 */
+}
+
+/* AI优势页面的图片直接放大 */
+#ai-advantages .project-image img {
+    max-width: 1400px !important;
+    width: 100% !important;
+    max-height: 400px !important;
+    object-fit: contain !important;
+}
+
+/* AI优势页面防止内容溢出 */
+#ai-advantages {
+    overflow: hidden;
+}
+
+#ai-advantages .container {
     max-height: 100vh;
     overflow: hidden;
 }
@@ -577,9 +627,9 @@ body.presentation-mode .plans-section .plan-header i {
 }
 
 .project-image {
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: center;
 }
 
@@ -592,6 +642,13 @@ body.presentation-mode .plans-section .plan-header i {
     transition: transform 0.3s ease;
 }
 
+/* 特别移除Hugging Face图片的阴影和边框 */
+#advantages-2 .project-image.compact:last-child img {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
 .project-image img:hover {
     transform: scale(1.05);
 }
@@ -599,8 +656,14 @@ body.presentation-mode .plans-section .plan-header i {
 .image-caption {
     margin-top: 0.5rem;
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
+    background: transparent !important;
+    background-color: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
 }
 
 /* 项目流程展示页 */
@@ -863,7 +926,7 @@ body.presentation-mode .plans-section .plan-header i {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 1.4rem;
 }
 
 /* 简化的核心理念 */
@@ -1760,10 +1823,10 @@ body.presentation-mode .page-controller {
     }
 
     .project-image {
-        background: rgba(255, 255, 255, 0.15) !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        background: transparent !important;
+        border: none !important;
         border-radius: 6mm !important;
-        padding: 4mm !important;
+        padding: 2mm !important;
         text-align: center !important;
     }
 
@@ -1775,11 +1838,38 @@ body.presentation-mode .page-controller {
         box-shadow: 0 1mm 3mm rgba(0, 0, 0, 0.2) !important;
     }
 
+    /* PDF中特别优化Hugging Face图片 */
+    #advantages-2 .project-image:last-child img {
+        max-width: 120mm !important;
+        max-height: 60mm !important;
+        object-fit: contain !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+    }
+
+    /* PDF中移除Hugging Face图片容器的所有装饰 */
+    #advantages-2 .project-image:last-child {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
     .image-caption {
         margin-top: 2mm !important;
         font-size: 8pt !important;
         color: rgba(255, 255, 255, 0.8) !important;
         font-weight: 500 !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
     }
 
     /* Vision section 特殊样式 */

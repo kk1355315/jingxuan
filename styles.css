@@ -197,7 +197,7 @@ body.presentation-mode .plans-section .plan-header i {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
@@ -362,7 +362,7 @@ body.presentation-mode .plans-section .plan-header i {
     background: #f8f9fa;
     border-radius: 15px;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
 }
@@ -486,18 +486,59 @@ body.presentation-mode .plans-section .plan-header i {
 .content-with-image {
     display: flex;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
+    min-height: 400px;
 }
 
 .text-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .image-showcase {
-    flex: 1;
+    flex: 1.5;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 优势1的图片特殊调整 */
+#advantages-1 .image-showcase {
+    transform: translateY(-2rem);
+}
+
+/* 水平布局的图片展示 */
+.image-showcase.horizontal-layout {
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.image-showcase.horizontal-layout .project-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+/* 垂直紧凑布局的图片展示 */
+.image-showcase.vertical-compact {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.image-showcase.vertical-compact .project-image.compact {
+    max-width: 700px;
+    width: 100%;
+}
+
+.image-showcase.vertical-compact .project-image.compact img {
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
 }
 
 .project-image {
@@ -509,7 +550,7 @@ body.presentation-mode .plans-section .plan-header i {
 
 .project-image img {
     width: 100%;
-    max-width: 600px;
+    max-width: 900px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -525,6 +566,172 @@ body.presentation-mode .plans-section .plan-header i {
     font-size: 1.2rem;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 500;
+}
+
+/* 项目流程展示页 */
+.project-flow-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-height: 100vh;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flow-description {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.flow-description p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.flow-diagram {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.flow-left, .flow-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.flow-layer {
+    margin-bottom: 1rem;
+}
+
+.layer-title {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.flow-nodes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.flow-node {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    min-width: 120px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    flex: 1;
+    max-width: 160px;
+}
+
+.flow-node:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.flow-node i {
+    font-size: 1.5rem;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.flow-node span {
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.flow-node small {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.user-node i { color: #4fc3f7; }
+.game-node i { color: #81c784; }
+.api-node i { color: #ffb74d; }
+.data-node i { color: #f06292; }
+
+.flow-arrow {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.flow-arrow i {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.tech-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.highlight-item i {
+    font-size: 1.8rem;
+    color: #4fc3f7;
+    margin-bottom: 0.5rem;
+}
+
+.highlight-item h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.highlight-item p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
 }
 
 /* 第三区：理解 */
@@ -622,6 +829,83 @@ body.presentation-mode .plans-section .plan-header i {
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
+}
+
+/* 简化的核心理念 */
+.simple-philosophy {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.simple-philosophy h3 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.simple-philosophy p {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+/* 大图对比展示 */
+.large-comparison {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+.comparison-item.large {
+    text-align: center;
+    flex: 1;
+    max-width: none;
+    width: 48%;
+}
+
+.comparison-item.large img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 3px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comparison-item.large img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.comparison-label.large {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #374151;
+    font-weight: 600;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.comparison-arrow.large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6366f1;
+    font-size: 2.5rem;
+    margin: 0 0.5rem;
+    flex-shrink: 0;
+}
+
+.comparison-arrow.large span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6366f1;
+    white-space: nowrap;
 }
 
 /* 第五区：突破性构想 */
@@ -1118,6 +1402,10 @@ body.presentation-mode .page-controller {
         display: none !important;
     }
 
+    .page-controller {
+        display: none !important;
+    }
+
     .main-content {
         margin: 0 !important;
         padding: 0 !important;
@@ -1530,4 +1818,313 @@ body.presentation-mode .page-controller {
     }
 
     /* 删除重复的分页规则，统一在.section中处理 */
+}
+
+/* 工作重点2的新布局样式 */
+.plan-philosophy {
+    margin-bottom: 2rem;
+}
+
+/* 紧凑布局样式 */
+.compact-layout {
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+.section-title.compact {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.philosophy-section {
+    display: flex;
+    align-items: center;
+}
+
+.philosophy-highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.philosophy-highlight.compact {
+    padding: 1.5rem;
+}
+
+.comparison-section h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.comparison-images.compact {
+    gap: 1rem;
+}
+
+.comparison-images.compact .comparison-item {
+    max-width: 200px;
+}
+
+.comparison-images.compact .comparison-item img {
+    max-height: 120px;
+    object-fit: cover;
+}
+
+.philosophy-highlight i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.philosophy-highlight h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.philosophy-highlight p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.deepseek-comparison {
+    margin-bottom: 2rem;
+}
+
+.deepseek-comparison h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.comparison-images {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.comparison-item {
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+}
+
+.comparison-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.comparison-item img:hover {
+    transform: scale(1.05);
+}
+
+.comparison-label {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.comparison-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.comparison-arrow i {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+.comparison-arrow span {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(0);
+    }
+    40% {
+        transform: translateX(10px);
+    }
+    60% {
+        transform: translateX(5px);
+    }
+}
+
+.action-plan h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #2c3e50;
+}
+
+.action-plan.compact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.action-grid.compact {
+    gap: 1rem;
+}
+
+.action-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.action-item.compact {
+    padding: 1rem;
+}
+
+.action-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.action-item i {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.action-item.compact i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.action-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.action-item.compact h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.action-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.action-item.compact p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+/* 页面控制器样式 */
+.page-controller {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* PPT模式时隐藏页面控制器 */
+body.presentation-mode .page-controller {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.page-nav-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.page-nav-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.page-nav-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.page-info {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    min-width: 80px;
+    text-align: center;
+}
+
+.page-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ddd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.page-dot.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scale(1.2);
+}
+
+.page-dot:hover {
+    background: #667eea;
+    transform: scale(1.1);
 }

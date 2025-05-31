@@ -78,68 +78,210 @@
             </div>
         </section>
 
-        <!-- 第二区：三大竞聘优势 -->
-        <section class="section advantages-section" id="advantages">
+        <!-- 第二区：优势一 -->
+        <section class="section advantages-section" id="advantages-1">
             <div class="container">
-                <h2 class="section-title">三大竞聘优势</h2>
+                <h2 class="section-title">优势一：扎实的后端技术与丰富项目经验</h2>
 
                 <!-- 优势1：技术与项目经验 -->
                 <div class="advantage-block">
                     <div class="advantage-header">
                         <i class="fas fa-code"></i>
-                        <h3>优势一：扎实的后端技术与项目经验</h3>
+                        <h3>核心技术能力与项目实战</h3>
                     </div>
                     <div class="advantage-content">
                         <div class="content-with-image">
                             <div class="text-content">
                                 <ul>
-                                    <li>精通 <strong>Python, FastAPI, SQLModel</strong></li>
-                                    <li>独立完成"猜灯谜后端"（API设计, Kimi集成）</li>
-                                    <li>负责"山大学生在线资源管理系统"数据结构</li>
+                                    <li><strong>核心技术栈</strong> - 精通Python、FastAPI、SQLModel等现代后端技术</li>
+                                    <li><strong>完整项目经验</strong> - 独立完成"猜灯谜后端"（API设计、Kimi集成、数据库设计）</li>
+                                    <li><strong>系统架构能力</strong> - 负责"山大学生在线资源管理系统"核心数据结构与接口设计</li>
+                                    <li><strong>实际部署经验</strong> - 具备服务器部署、API文档编写、系统维护等全栈能力</li>
+                                    <li><strong>自动化解决方案</strong> - 开发实验报告自动排版脚本，解决实际工作痛点</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-tag">Python</span>
                                     <span class="tech-tag">FastAPI</span>
                                     <span class="tech-tag">SQLModel</span>
                                     <span class="tech-tag">API设计</span>
+                                    <span class="tech-tag">系统架构</span>
                                 </div>
                             </div>
                             <div class="image-showcase">
                                 <div class="project-image">
                                     <img src="photo/屏幕截图 2025-05-28 195610.png" alt="猜灯谜项目运行效果">
-                                    <div class="image-caption">项目运行效果展示</div>
+                                    <div class="image-caption">猜灯谜项目运行效果</div>
+                                </div>
+                                <div class="project-image">
+                                    <img src="photo/屏幕截图 2025-05-31 162343.png" alt="学生在线资源管理系统UI">
+                                    <div class="image-caption">学生在线资源管理系统界面</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目流程展示页 -->
+        <section class="section project-flow-section" id="project-flow">
+            <div class="container">
+                <h2 class="section-title">项目案例：猜灯谜拼图游戏系统架构</h2>
+
+                <div class="flow-description">
+                    <p>基于FastAPI + SQLModel构建的完整后端系统，集成AI能力，支持多种游戏模式</p>
+                </div>
+
+                <div class="flow-diagram">
+                    <!-- 左侧：用户层和游戏层 -->
+                    <div class="flow-left">
+                        <!-- 用户层 -->
+                        <div class="flow-layer">
+                            <h3 class="layer-title">用户交互层</h3>
+                            <div class="flow-nodes">
+                                <div class="flow-node user-node">
+                                    <i class="fas fa-user"></i>
+                                    <span>游客注册</span>
+                                </div>
+                                <div class="flow-node user-node">
+                                    <i class="fas fa-user-edit"></i>
+                                    <span>用户信息</span>
+                                </div>
+                                <div class="flow-node user-node">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>排行榜</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 游戏模式层 -->
+                        <div class="flow-layer">
+                            <h3 class="layer-title">游戏模式层</h3>
+                            <div class="flow-nodes">
+                                <div class="flow-node game-node">
+                                    <i class="fas fa-clock"></i>
+                                    <span>竞速模式</span>
+                                    <small>60题/180秒</small>
+                                </div>
+                                <div class="flow-node game-node">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    <span>收集模式</span>
+                                    <small>5题获得碎片</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧：API层和数据层 -->
+                    <div class="flow-right">
+                        <!-- API层 -->
+                        <div class="flow-layer">
+                            <h3 class="layer-title">API服务层</h3>
+                            <div class="flow-nodes">
+                                <div class="flow-node api-node">
+                                    <i class="fas fa-server"></i>
+                                    <span>FastAPI</span>
+                                    <small>RESTful API</small>
+                                </div>
+                                <div class="flow-node api-node">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Kimi集成</span>
+                                    <small>AI能力</small>
+                                </div>
+                                <div class="flow-node api-node">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Cookie认证</span>
+                                    <small>7天有效期</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 数据层 -->
+                        <div class="flow-layer">
+                            <h3 class="layer-title">数据存储层</h3>
+                            <div class="flow-nodes">
+                                <div class="flow-node data-node">
+                                    <i class="fas fa-database"></i>
+                                    <span>SQLModel</span>
+                                    <small>ORM映射</small>
+                                </div>
+                                <div class="flow-node data-node">
+                                    <i class="fas fa-file-image"></i>
+                                    <span>文件存储</span>
+                                    <small>头像/碎片</small>
+                                </div>
+                                <div class="flow-node data-node">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>统计数据</span>
+                                    <small>准确率/排名</small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- 技术特色 -->
+                <div class="tech-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-rocket"></i>
+                        <h4>高性能架构</h4>
+                        <p>FastAPI异步处理，支持高并发访问</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-cogs"></i>
+                        <h4>智能集成</h4>
+                        <p>集成Kimi AI，提供智能化游戏体验</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>完整API</h4>
+                        <p>RESTful设计，支持多端接入</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-lock"></i>
+                        <h4>安全可靠</h4>
+                        <p>Cookie认证机制，数据安全保障</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二区B：优势二 -->
+        <section class="section advantages-section" id="advantages-2">
+            <div class="container">
+                <h2 class="section-title">优势二：现代开发工具与DevOps实践</h2>
+
                 <!-- 优势2：现代开发工具 -->
                 <div class="advantage-block">
                     <div class="advantage-header">
                         <i class="fas fa-tools"></i>
-                        <h3>优势二：现代开发工具与DevOps实践</h3>
+                        <h3>全栈开发工具链掌握</h3>
                     </div>
                     <div class="advantage-content">
                         <div class="content-with-image">
                             <div class="text-content">
                                 <ul>
                                     <li>精通 <strong>Git协作</strong> 与版本控制</li>
-                                    <li><strong>Docker基础应用</strong> 与容器化部署</li>
+                                    <li><strong>Docker容器化部署</strong> - 在Hugging Face上部署API轮询项目，提高并发处理能力</li>
                                     <li>服务器部署与代理经验</li>
                                     <li>Python测试库应用</li>
                                 </ul>
                                 <div class="tech-stack">
                                     <span class="tech-tag">Git</span>
                                     <span class="tech-tag">Docker</span>
+                                    <span class="tech-tag">Hugging Face</span>
+                                    <span class="tech-tag">API轮询</span>
                                     <span class="tech-tag">服务器部署</span>
-                                    <span class="tech-tag">测试</span>
                                 </div>
                             </div>
-                            <div class="image-showcase">
-                                <div class="project-image">
-                                    <img src="photo/屏幕截图 2025-05-28 200037.png" alt="Git提交记录">
+                            <div class="image-showcase vertical-compact">
+                                <div class="project-image compact">
+                                    <img src="photo/屏幕截图 2025-05-31 173855.png" alt="Git提交记录">
                                     <div class="image-caption">规范的Git提交记录</div>
+                                </div>
+                                <div class="project-image compact">
+                                    <img src="photo/屏幕截图 2025-05-31 165601.png" alt="Docker部署API轮询项目">
+                                    <div class="image-caption">Hugging Face上Docker部署的API轮询项目</div>
                                 </div>
                             </div>
                         </div>
@@ -151,22 +293,68 @@
         <!-- 第二区B：AI整合应用（单独一页） -->
         <section class="section ai-section" id="ai-advantages">
             <div class="container">
-                <h2 class="section-title">优势三：AI工具与模型的专业级掌握</h2>
+                <h2 class="section-title">优势三：AI工具深度掌握与业界动态敏锐洞察</h2>
 
-                <!-- 优势3：AI应用的差异化优势 -->
+                <!-- 优势3：AI工具与业界动态的深度掌握 -->
                 <div class="advantage-block highlight">
                     <div class="advantage-header">
                         <i class="fas fa-brain"></i>
-                        <h3>优势三：AI工具与模型的专业级掌握</h3>
+                        <h3>优势三：AI工具深度掌握与业界动态敏锐洞察</h3>
                     </div>
                     <div class="advantage-content">
                         <div class="content-with-image">
                             <div class="text-content">
                                 <ul>
-                                    <li><strong>AI工具深度使用</strong> - Cursor、Cline、Augment、Roo Code等主流工具</li>
-                                    <li><strong>模型特性精准掌握</strong> - 每天关注模型测评，了解各模型优势</li>
-                                    <li><strong>场景化选择能力</strong> - 知道什么任务用什么模型最合适</li>
-                                    <li><strong>实际问题解决</strong> - 不想手动排版实验报告，直接AI编程搞定</li>
+                                    <li><strong>深度工具使用</strong> - 熟练掌握Cursor、Cline、Augment、Roo Code等前沿AI编程工具</li>
+                                    <li><strong>实际API应用</strong> - 大量使用各类AI模型API，深度了解不同模型特性与适用场景</li>
+                                    <li><strong>业界动态追踪</strong> - 每日关注AI模型更新、性能测评，第一时间了解技术发展</li>
+                                    <li><strong>敏锐技术嗅觉</strong> - 大模型日新月异，每次更新都可能带来突破性变化，必须时刻保持关注</li>
+                                    <li><strong>场景化应用</strong> - 基于深度理解，能为不同任务推荐最适配的AI工具和模型</li>
+                                </ul>
+                            </div>
+                            <div class="image-showcase">
+                                <div class="project-image">
+                                    <img src="photo/流量（按响应代码）.png" alt="Gemini API使用情况">
+                                    <div class="image-caption">个人Gemini API大量使用记录</div>
+                                </div>
+                                <div class="project-image">
+                                    <img src="photo/屏幕截图 2025-05-31 163721.png" alt="GCP API调用情况">
+                                    <div class="image-caption">GCP平台API调用统计</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI专业认知展示 -->
+                <div class="ai-philosophy">
+                    <strong>专业洞察</strong>：AI领域变化极快，从GPT o3 high到Claude 4 opus，从Gemini 2.5 pro preview 0506到DeepSeek R1 0528，每个模型都有独特优势。
+                    我不仅深度使用这些工具，更重要的是<strong>持续追踪业界动态，理解技术发展趋势</strong>，
+                    能够帮助团队在快速变化的AI时代中<strong>选择最合适的工具，把握最新的技术机遇</strong>。
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- 第三区：工作重点一 -->
+        <section class="section plans-section" id="plans-1">
+            <div class="container">
+                <h2 class="section-title">工作重点一：技术赋能工作，提升服务效率</h2>
+
+                <div class="plan-block">
+                    <div class="plan-header">
+                        <i class="fas fa-users"></i>
+                        <h3>培养高效自动化思维，结合AI提升工作效率</h3>
+                    </div>
+                    <div class="plan-content">
+                        <div class="content-with-image">
+                            <div class="text-content">
+                                <ul>
+                                    <li><strong>培养自动化思维</strong> - 引导同学们识别重复性工作，养成"能自动化就自动化"的高效思维</li>
+                                    <li><strong>AI工具结合实践</strong> - 将AI技术与具体工作场景结合，提升解决问题的效率</li>
+                                    <li><strong>长方形工作自动化</strong> - 针对格式化、数据处理等标准化任务，开发自动化解决方案</li>
+                                    <li><strong>技术赋能学工</strong> - 优化学生信息管理系统，为校园活动提供技术支持</li>
                                 </ul>
                             </div>
                             <div class="image-showcase">
@@ -176,63 +364,68 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="plan-note">
+                            <i class="fas fa-heart"></i>
+                            让同学们从重复劳动中解放出来，专注于更有价值的创造性工作
+                        </div>
                     </div>
-                </div>
-
-                <!-- AI模型专业了解 - 独立横向展示 -->
-                <div class="ai-philosophy">
-                    <strong>模型特性掌握</strong>：深度了解主流AI模型的技术特点与应用场景，包括Gemini 2.5 Pro的综合性能优势、Claude 4在编程领域的卓越表现、
-                    DeepSeek R1作为开源模型的性价比优势等。<strong>基于这些专业认知，能够为不同开发场景推荐最适配的技术方案。</strong>
                 </div>
             </div>
         </section>
 
-
-
-        <!-- 第三区：两大工作重点 -->
-        <section class="section plans-section" id="plans">
+        <!-- 第三区B：工作重点二 -->
+        <section class="section plans-section" id="plans-2">
             <div class="container">
-                <h2 class="section-title">两大工作重点</h2>
+                <h2 class="section-title">工作重点二：培养团队AI技术敏感度</h2>
 
-                <div class="plans-grid">
-                    <!-- 重点1 -->
-                    <div class="plan-block">
-                        <div class="plan-header">
-                            <i class="fas fa-users"></i>
-                            <h3>重点一：技术赋能工作，提升服务效率</h3>
-                        </div>
-                        <div class="plan-content">
-                            <ul>
-                                <li><strong>学生信息管理系统优化</strong> - 提升学工数据处理效率</li>
-                                <li><strong>校园活动技术支持</strong> - 为文化活动提供技术保障</li>
-                                <li><strong>自动化工具开发</strong> - 减少重复性工作，释放人力资源</li>
-                                <li><strong>团队技术培训</strong> - 提升整体技术应用水平</li>
-                            </ul>
-                            <div class="plan-note">
-                                <i class="fas fa-heart"></i>
-                                服务学生成长，助力校园发展
-                            </div>
-                        </div>
+                <!-- 简化的核心理念 -->
+                <div class="simple-philosophy">
+                    <h3>典型案例：DeepSeek-R1-0528 的突破性进展</h3>
+                    <p>大模型日新月异，每次更新都可能带来颠覆性变化</p>
+                </div>
+
+                <!-- 大图对比展示 -->
+                <div class="large-comparison">
+                    <div class="comparison-item large">
+                        <img src="photo/屏幕截图 2025-05-31 162210.png" alt="DeepSeek更新前跑分">
+                        <div class="comparison-label large">更新前性能表现</div>
                     </div>
+                    <div class="comparison-arrow large">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>突破性提升</span>
+                    </div>
+                    <div class="comparison-item large">
+                        <img src="photo/DeepSeek-R1 更新，思考更深，推理更强_2_DeepSeek_来自小红书网页版.jpg" alt="DeepSeek R1更新后">
+                        <div class="comparison-label large">更新后突破性表现</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 重点2 -->
-                    <div class="plan-block">
-                        <div class="plan-header">
-                            <i class="fas fa-rocket"></i>
-                            <h3>重点二：推广AI技术应用，提升服务效率</h3>
-                        </div>
-                        <div class="plan-content">
-                            <ul>
-                                <li><strong>AI工具选型指导</strong> - 根据需求推荐最合适的工具和模型</li>
-                                <li><strong>成本效益优化</strong> - 平衡免费开源模型和付费模型的使用</li>
-                                <li><strong>实时技术跟踪</strong> - 持续关注AI模型更新和性能测评</li>
-                                <li><strong>团队培训赋能</strong> - 分享最新AI工具使用技巧和最佳实践</li>
-                            </ul>
-                            <div class="plan-note">
-                                <i class="fas fa-lightbulb"></i>
-                                专业选择，高效应用
-                            </div>
-                        </div>
+        <!-- 第三区C：工作重点二行动计划 -->
+        <section class="section plans-section" id="plans-2-actions">
+            <div class="container">
+                <h2 class="section-title">具体行动计划</h2>
+                <div class="action-grid">
+                    <div class="action-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>定期培训</h4>
+                        <p>分享AI模型更新与性能测评</p>
+                    </div>
+                    <div class="action-item">
+                        <i class="fas fa-eye"></i>
+                        <h4>敏感度培养</h4>
+                        <p>关注AI业界动态，理解技术趋势</p>
+                    </div>
+                    <div class="action-item">
+                        <i class="fas fa-tools"></i>
+                        <h4>工具指导</h4>
+                        <p>推荐最适合的AI工具和模型</p>
+                    </div>
+                    <div class="action-item">
+                        <i class="fas fa-search"></i>
+                        <h4>前沿跟踪</h4>
+                        <p>第一时间评估突破性模型价值</p>
                     </div>
                 </div>
             </div>
@@ -371,7 +564,7 @@
         </button>
 
         <div class="page-info">
-            <span id="currentPage">1</span> / <span id="totalPages">7</span>
+            <span id="currentPage">1</span> / <span id="totalPages">9</span>
         </div>
 
         <div class="page-dots" id="pageDots">
